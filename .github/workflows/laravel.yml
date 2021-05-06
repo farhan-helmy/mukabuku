@@ -25,6 +25,7 @@ jobs:
        with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
+        format: html
         message: |
-         The ${{ github.event_name }} event triggered.
-         echo Ada orang push woi.
+         The <b>${{ github.event_name }}</b> event triggered.
+         <u>Ada orang push woi.</u>

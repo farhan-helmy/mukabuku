@@ -20,3 +20,11 @@ jobs:
         host: 128.199.185.188
         password: ${{ secrets.SSH_PASSWORD }}
         script: 'cd /var/www/mukabuku && ./deploy.sh'
+     - name: send custom message
+       uses: appleboy/telegram-action@master
+       with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+         The ${{ github.event_name }} event triggered.
+         echo Ada orang push woi.

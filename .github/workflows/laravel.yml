@@ -17,8 +17,9 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         format: html
         message: |
+         <strong>${{github.repo}}</strong>
          The <b>${{ github.event_name }}</b> event triggered.
-         <u>Ada orang push woi.</u>
+         <u><strong>${{ github.actor }}</strong> push woi.</u>
      - uses: actions/checkout@v2
        with:
         token: ${{ secrets.PUSH_TOKEN }}

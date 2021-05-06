@@ -21,7 +21,7 @@ jobs:
          <strong>Repo ${{github.repository}}</strong>
          The <b>${{ github.event_name }}</b> event triggered.
          <strong>${{ github.actor }}</strong> ${{ github.event_name }} woi.
-         Dekat branch <b>${{ github.head_ref }}</b>
+         Dekat branch <b>${{ github.ref }}</b>
      - uses: actions/checkout@v2
        with:
         token: ${{ secrets.PUSH_TOKEN }}

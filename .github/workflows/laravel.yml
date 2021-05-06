@@ -19,4 +19,4 @@ jobs:
         username: root
         host: 128.199.185.188
         password: ${{ secrets.SSH_PASSWORD }}
-        script: 'cd /var/www/html && ./server_deploy.sh'
+        script: 'cd /var/www/html && ./deploy.sh'

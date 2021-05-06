@@ -17,9 +17,10 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         format: html
         message: |
-         <strong>${{github.repo}}</strong>
+         <strong>Repo ${{github.repo.name}}</strong>
          The <b>${{ github.event_name }}</b> event triggered.
-         <u><strong>${{ github.actor }}</strong> push woi.</u>
+         <strong>${{ github.actor }}</strong> ${{ github.event_name }} woi.
+         Dekat branch <b>${{ github.master_branch }}</b>
      - uses: actions/checkout@v2
        with:
         token: ${{ secrets.PUSH_TOKEN }}

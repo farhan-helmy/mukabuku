@@ -1,0 +1,22 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ development ]
+  pull_request:
+    branches: [ development ]
+
+jobs:
+ deploy:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+       with:
+        token: ${{ secrets.PUSH_TOKEN }}
+     - name: Deploy to production
+       uses: appleboy/ssh-action@master
+       with:
+        username: root
+        host: 128.199.185.188
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: 'cd /var/www/html && ./server_deploy.sh'

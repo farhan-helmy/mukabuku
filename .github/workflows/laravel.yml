@@ -10,6 +10,15 @@ jobs:
  deploy:
     runs-on: ubuntu-latest
     steps:
+     - name: send custom message
+       uses: appleboy/telegram-action@master
+       with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        format: html
+        message: |
+         The <b>${{ github.event_name }}</b> event triggered.
+         <u>Ada orang push woi.</u>
      - uses: actions/checkout@v2
        with:
         token: ${{ secrets.PUSH_TOKEN }}
@@ -20,12 +29,4 @@ jobs:
         host: 128.199.185.188
         password: ${{ secrets.SSH_PASSWORD }}
         script: 'cd /var/www/mukabuku && ./deploy.sh'
-     - name: send custom message
-       uses: appleboy/telegram-action@master
-       with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        format: html
-        message: |
-         The <b>${{ github.event_name }}</b> event triggered.
-         <u>Ada orang push woi.</u>
+     

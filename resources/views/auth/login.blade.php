@@ -24,12 +24,19 @@
                             <div class="control">
                                 <input id="email" type="email" class="input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             </div>
+                            
+                            @error('email')
+                                <p class="help is-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="field">
                             <label>Password</label>
                             <div class="control">
                                 <input id="password" type="password" class="input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             </div>
+                            @error('password')
+                                <p class="help is-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="field is-flex">
                             <div class="switch-block">
@@ -54,10 +61,10 @@
                     </div>
 
                     <div class="account-link has-text-centered">
-                        <a href="/signup.html">Don't have an account? Sign Up</a>
+                        <a href="{{ route('register') }}">Don't have an account? Sign Up</a>
                     </div>
                 </div>
-            </form>
+            </form> 
         </div>
     </div>
 </div>
